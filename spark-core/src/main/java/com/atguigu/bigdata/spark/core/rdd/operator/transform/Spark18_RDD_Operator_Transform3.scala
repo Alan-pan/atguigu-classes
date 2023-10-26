@@ -31,11 +31,13 @@ object Spark18_RDD_Operator_Transform3 {
             }
         )
 
-        val resultRDD: RDD[(String, Int)] = newRDD.mapValues {
-            case (num, cnt) => {
-                num / cnt
+        val resultRDD: RDD[(String, Int)] = newRDD.mapValues{
+                case (num,cut)=>{
+                  num/cut
             }
         }
+
+
         resultRDD.collect().foreach(println)
 
 

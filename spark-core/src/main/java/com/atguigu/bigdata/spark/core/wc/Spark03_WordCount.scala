@@ -91,13 +91,13 @@ object Spark03_WordCount {
         val rdd = sc.makeRDD(List("Hello Scala", "Hello Spark"))
         val words = rdd.flatMap(_.split(" "))
 
-        // 【（word, count）,(word, count)】
-        // word => Map[(word,1)]
-        val mapWord = words.map(
+        val mapWord: RDD[mutable.Map[String, Long]] = words.map(
             word => {
-                mutable.Map[String, Long]((word,1))
+                mutable.Map[String, Long]((word, 1))
             }
         )
+        // 【（word, count）,(word, count)】
+        // word => Map[(word,1)]
 
        val wordCount = mapWord.reduce(
             (map1, map2) => {

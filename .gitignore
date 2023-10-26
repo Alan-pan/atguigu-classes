@@ -1,0 +1,4 @@
+# Project exclude paths
+/spark-core/target/
+metastore_db
+output

@@ -14,9 +14,12 @@ object Spark04_Acc_WordCount {
 
         val rdd = sc.makeRDD(List("hello", "spark", "hello"))
 
+        //轮子
+        sc.longAccumulator("sum")
+
         // 累加器 : WordCount
         // 创建累加器对象
-        val wcAcc = new MyAccumulator()
+        val wcAcc = new MyAccumulator
         // 向Spark进行注册
         sc.register(wcAcc, "wordCountAcc")
 

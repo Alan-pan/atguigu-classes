@@ -20,10 +20,14 @@ object Spark23_RDD_Operator_Transform {
             ("a", 4), ("b", 5),("c", 6),("c", 7)
         ))
 
-        // cogroup : connect + group (分组，连接)
-        val cgRDD: RDD[(String, (Iterable[Int], Iterable[Int]))] = rdd1.cogroup(rdd2)
+        val rdd3 = sc.makeRDD(List(
+            ("a", 77), ("c", 67),("a", 47)
+        ))
 
-        cgRDD.collect().foreach(println)
+        // cogroup : connect + group (分组，连接)
+        val value: RDD[(String, (Iterable[Int], Iterable[Int], Iterable[Int]))] = rdd1.cogroup(rdd2, rdd3)
+
+        value.collect().foreach(println)
 
 
         sc.stop()

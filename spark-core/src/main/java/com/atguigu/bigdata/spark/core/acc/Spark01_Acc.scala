@@ -17,7 +17,9 @@ object Spark01_Acc {
         var sum = 0
         rdd.foreach(
             num => {
+                println("@@@")
                 sum += num
+                println(sum )
             }
         )
         println("sum = " + sum)

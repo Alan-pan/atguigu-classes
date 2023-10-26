@@ -32,8 +32,8 @@ object Spark06_RDD_Persist {
         val mapRDD = flatRDD.map(word=>{
             (word,1)
         })
-        //mapRDD.cache()
-        mapRDD.checkpoint()
+        mapRDD.cache()
+//        mapRDD.checkpoint()
         println(mapRDD.toDebugString)
         val reduceRDD: RDD[(String, Int)] = mapRDD.reduceByKey(_+_)
         reduceRDD.collect().foreach(println)

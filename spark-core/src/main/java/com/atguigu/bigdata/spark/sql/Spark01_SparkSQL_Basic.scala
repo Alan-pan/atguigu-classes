@@ -27,6 +27,7 @@ object Spark01_SparkSQL_Basic {
 //        spark.sql("select age, username from user").show
 //        spark.sql("select avg(age) from user").show
 
+
         // DataFrame => DSL
         // 在使用DataFrame时，如果涉及到转换操作，需要引入转换规则
 

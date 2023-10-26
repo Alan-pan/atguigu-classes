@@ -31,7 +31,7 @@ object Spark17_RDD_Operator_Transform1 {
         rdd.aggregateByKey(5)(
             (x, y) => math.max(x, y),
             (x, y) => x + y
-        ).collect.foreach(println)
+        ).saveAsTextFile("aggregateByKey")
 
         rdd.aggregateByKey(0)(
             (x, y) => x + y,
